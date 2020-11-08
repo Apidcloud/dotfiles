@@ -111,7 +111,7 @@ source $ZSH/oh-my-zsh.sh
 alias zshconfig="vim ~/.zshrc"
 #alias pbcopy="cat >/dev/clipboard"
 #alias pbpaste="cat /dev/clipboard"
-alias work="cd ~/Documents/Workspace/Git/Github"
+alias work="cd ~/Workspace/Git/Github"
 alias ll="ls -a1"
 alias de="cd ~/Desktop"
 alias sz="source ~/.zshrc"
