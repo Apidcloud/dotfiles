@@ -3,7 +3,7 @@
 # ~/.macos — https://mths.be/macos
 # Modified by Luis Fernandes aka Apidcloud 
 # Run without downloading:
-# curl https://raw.githubusercontent.com/Apidcloud/dotfiles/master/.macos | bash
+# curl https://raw.githubusercontent.com/Apidcloud/dotfiles/master/.macOS | bash
 
 # Set computer name
 COMPUTERNAME="Luis' MacBook Pro"

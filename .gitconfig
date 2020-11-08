@@ -3,7 +3,6 @@
   email = luisapidcloud@hotmail.com
 [alias]
   cdiff = "!git diff $1 $1^"
-
 [core]
   pager = delta --theme="night-owlish"
 	excludesfile = /Users/luis/.gitignore_global
