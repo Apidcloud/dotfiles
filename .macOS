@@ -59,12 +59,6 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 echo "cloning powerlevel10k theme"
 git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
 
-# create local directory for custom fonts
-echo "installing source code pro powerline font..."
-mkdir ~/.local/share/fonts
-cp ~/dotfiles/fonts/SourceCodePro+Powerline+Awesome+Regular.ttf ~/.local/share/fonts
-fc-cache -f -v
-
 echo "cloning zsh plugins"
 git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
@@ -96,6 +90,12 @@ mkdir -p "${HOME}/.config/bat/themes"
 ln -s "${HOME}/dotfiles/.config/bat/config" "${HOME}/.config/bat/config"
 git clone https://github.com/batpigandme/night-owlish "${HOME}/.config/bat/themes/night-owlish"
 bat cache --build
+
+# create local directory for custom fonts
+echo "installing source code pro powerline font..."
+mkdir ~/.local/share/fonts
+cp ~/dotfiles/fonts/SourceCodePro+Powerline+Awesome+Regular.ttf ~/.local/share/fonts
+fc-cache -f -v
 
 printf "You now need to set iTerm preferences manually: \n\
  font: iTerm → Preferences → Profiles → Text → Font \n\
