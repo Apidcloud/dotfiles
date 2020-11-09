@@ -253,19 +253,21 @@ defaults write com.apple.dock autohide -bool true
 # 11: Launchpad
 # 12: Notification Center
 # 13: Lock Screen
-# 1048576 is ⌘ I think
+# wvous-*-modifier represents additional modifier keys that must be 
+# pressed to activate the hot corners. In this case, 0 represents no modifier 
+# (i.e., no additional key is needed)
 # Top left screen corner → Mission Control
 defaults write com.apple.dock wvous-tl-corner -int 2
-defaults write com.apple.dock wvous-tl-modifier -int 1048576
+defaults write com.apple.dock wvous-tl-modifier -int 0
 # Top right screen corner → Notification Centre
 defaults write com.apple.dock wvous-tr-corner -int 12
-defaults write com.apple.dock wvous-tr-modifier -int 1048576
+defaults write com.apple.dock wvous-tr-modifier -int 0
 # Bottom left screen corner → Lock Screen
 defaults write com.apple.dock wvous-bl-corner -int 13
-defaults write com.apple.dock wvous-bl-modifier -int 1048576
+defaults write com.apple.dock wvous-bl-modifier -int 0
 # Bottom right screen corner → Desktop
 defaults write com.apple.dock wvous-br-corner -int 4
-defaults write com.apple.dock wvous-br-modifier -int 1048576
+defaults write com.apple.dock wvous-br-modifier -int 0
 
 ###############################################################################
 # Kill affected applications                                                  #
