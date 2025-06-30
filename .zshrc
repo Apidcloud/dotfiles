@@ -108,7 +108,7 @@ source $ZSH/oh-my-zsh.sh
 #
 # Example aliases
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias zshconfig="vim ~/.zshrc"
+alias zshconfig="nvim ~/.zshrc"
 #alias pbcopy="cat >/dev/clipboard"
 #alias pbpaste="cat /dev/clipboard"
 alias work="cd ~/Workspace/Git/Github"
@@ -120,7 +120,7 @@ alias -- -="cd -"
 alias rmds="find . -type f -name '*.DS_Store' -ls -delete"
 
 # code related
-alias c="code ."
+alias c="tmuxifier load-session work"
 alias kcd="npx -p yo -p generator-kcd-oss -c 'yo kcd-oss'"
 alias yarn-upgrade="yarn upgrade-interactive --latest"
 
@@ -149,3 +149,42 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+# fzf
+source <(fzf --zsh)
+
+export FZF_DEFAULT_OPTS='--no-height --no-reverse'
+
+# Using highlight (http://www.andre-simon.de/doku/highlight/en/highlight.html)
+export FZF_CTRL_T_OPTS="--preview '(highlight -O ansi -l {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null | head -200'"
+
+export FZF_CTRL_R_OPTS="--preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview'"
+
+# place this after nvm initialization!
+autoload -U add-zsh-hook
+
+load-nvmrc() {
+  local nvmrc_path
+  nvmrc_path="$(nvm_find_nvmrc)"
+
+  if [ -n "$nvmrc_path" ]; then
+    local nvmrc_node_version
+    nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
+
+    if [ "$nvmrc_node_version" = "N/A" ]; then
+      nvm install
+    elif [ "$nvmrc_node_version" != "$(nvm version)" ]; then
+      nvm use
+    fi
+  elif [ -n "$(PWD=$OLDPWD nvm_find_nvmrc)" ] && [ "$(nvm version)" != "$(nvm version default)" ]; then
+    echo "Reverting to nvm default version"
+    nvm use default
+  fi
+}
+
+add-zsh-hook chpwd load-nvmrc
+load-nvmrc
+
+# tmuxifier
+export PATH="$HOME/.tmuxifier/bin:$PATH"
+
+eval "$(tmuxifier init -)"

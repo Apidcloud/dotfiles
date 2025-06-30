@@ -37,10 +37,9 @@ echo "installing homebrew"
 
 echo "brew installing stuff"
 # hub: a github-specific version of git
-# ffmpeg: eventually I'll need this for something
 # tree: really handy for listing out directories in text
 # bat: A cat(1) clone with syntax highlighting and Git integration.
-brew install git hub tree ffmpeg bat zsh git-delta nvm
+brew install git hub tree ffmpeg bat zsh git-delta nvm neovim ripgrep tmux devtunnel fzf
 
 echo "installing node (via n-install)"
 curl -L https://git.io/n-install | bash
@@ -49,7 +48,7 @@ echo "node --version: $(node --version)"
 echo "npm --version: $(npm --version)"
 
 echo "installing apps with brew cask"
-brew cask install brave-browser visual-studio-code skype \
+brew cask install brave-browser visual-studio-code \
 spotify rectangle dozer nightowl krisp keybase odrive \
 openvpn-connect pock sharemouse zotero steam iterm2
 
@@ -62,6 +61,12 @@ git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerl
 echo "cloning zsh plugins"
 git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
+
+echo "cloning tmux plugins"
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
+echo "cloning tmuxifier"
+git clone https://github.com/jimeh/tmuxifier.git ~/.tmuxifier
 
 echo "Generating an ED25519 token for GitHub" 
 mkdir -p ~/.ssh
@@ -76,14 +81,24 @@ echo "the ssh config file will be cloned and symlinked shortly"
 
 echo "cloning dotfiles..."
 git clone git@github.com:apidcloud/dotfiles.git "${HOME}/dotfiles"
+
+echo "symlinking tmuxifier layout"
+# might need chmod +x ~/.tmuxifier/layouts/backend.session.sh
+ln -s "${HOME}/dotfiles/.tmuxifier/layouts/work.session.sh" "${HOME}/.tmuxifier/layouts/work.session.sh"
+
+echo "symlinking neovim config"
+ln -s "${HOME}/dotfiles/.config/nvim" "${HOME}/.config"
+
 echo "symlinking ~/.ssh/config file..."
-ln -s "${HOME}/dotfiles/.ssh/config" "${HOME}/.ssh/config" 
+ln -s "${HOME}/dotfiles/.ssh/config" "${HOME}/.ssh/config"
 echo "run 'pbcopy < ~/.ssh/id_ed25519.pub' and paste that into GitHub"
 echo "run 'pbcopy < ~/.ssh/id_ed25519_gitlab.pub' and paste that into Gitlab"
+
 echo "symlinking other dotfiles..."
 ln -s "${HOME}/dotfiles/.zshrc" "${HOME}/.zshrc"
 ln -s "${HOME}/dotfiles/.gitignore_global" "${HOME}/.gitignore_global"
 ln -s "${HOME}/dotfiles/.gitconfig" "${HOME}/.gitconfig"
+ln -s "${HOME}/dotfiles/.tmux.conf" "${HOME}/.tmux.conf"
 
 # get bat and delta all configured
 mkdir -p "${HOME}/.config/bat/themes"
@@ -92,9 +107,10 @@ git clone https://github.com/batpigandme/night-owlish "${HOME}/.config/bat/theme
 bat cache --build
 
 # create local directory for custom fonts
-echo "installing source code pro powerline font..."
+echo "installing fonts..."
 mkdir ~/.local/share/fonts
 cp ~/dotfiles/fonts/SourceCodePro+Powerline+Awesome+Regular.ttf ~/.local/share/fonts
+cp ~/dotfiles/fonts/SauceCodeProNerdFont-Regular.ttf ~/.local/share/fonts
 fc-cache -f -v
 
 printf "You now need to set iTerm preferences manually: \n\
