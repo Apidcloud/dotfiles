@@ -16,6 +16,13 @@ This document outlines the custom keybindings configured in this NeoVim setup. T
 | `<leader>bf`    | Normal | Show open buffers in a floating window            |
 | `<C-e>`         | Normal | Show diagnostics (errors, warnings)               |
 
+## Editing
+
+| Keybinding | Mode   | Description              |
+| :--------- | :----- | :----------------------- |
+| `J`        | Visual | Move selected lines down |
+| `K`        | Visual | Move selected lines up   |
+
 ## Harpoon (File Bookmarking)
 
 | Keybinding   | Mode   | Description                     |
@@ -53,7 +60,7 @@ This document outlines the custom keybindings configured in this NeoVim setup. T
 
 | Keybinding   | Mode   | Description                               |
 | :----------- | :----- | :---------------------------------------- |
-| `K`          | Normal | Show documentation for symbol under cursor|
+| `H`          | Normal | Show documentation for symbol under cursor|
 | `<leader>gd` | Normal | Go to definition                          |
 | `<leader>gr` | Normal | Show List of references                   |
 | `<leader>ca` | Normal | Show code actions                         |
