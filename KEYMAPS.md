@@ -10,10 +10,11 @@ This document outlines the custom keybindings configured in this NeoVim setup. T
 | `<C-j>`         | Normal | Navigate to the pane below (Vim or Tmux)          |
 | `<C-k>`         | Normal | Navigate to the pane above (Vim or Tmux)          |
 | `<C-l>`         | Normal | Navigate to the pane on the right (Vim or Tmux)   |
-| `<C-\>`        | Normal | Navigate to the previously active Tmux pane       |
+| `<C-\>`         | Normal | Navigate to the previously active Tmux pane       |
 | `<leader>/`     | Normal | Clear search highlight                            |
-| `<C-n>`         | Normal | Toggle file explorer (Neo-tree)                   |
+| `<C-n>`         | Normal | Show/select file explorer (Neo-tree)              |
 | `<leader>bf`    | Normal | Show open buffers in a floating window            |
+| `<C-e>`         | Normal | Show diagnostics (errors, warnings)               |
 
 ## Harpoon (File Bookmarking)
 
@@ -35,16 +36,18 @@ This document outlines the custom keybindings configured in this NeoVim setup. T
 | `<C-p>`         | Normal | Find files                                |
 | `<leader>fg`    | Normal | Live grep for a string in the project     |
 | `<leader><leader>` | Normal | Show previously opened files              |
-| `<C-e>`         | Normal | List diagnostics (errors, warnings)       |
-| `<C-b>`         | Normal | Show git status                           |
-| `<leader>gs`    | Normal | List git stashes                          |
 
 ## Git Integration
 
 | Keybinding   | Mode   | Description                     |
 | :----------- | :----- | :------------------------------ |
-| `<leader>gp` | Normal | Preview hunk (GitSigns)         |
-| `<leader>gb` | Normal | Toggle line blame (GitSigns)    |
+| `<C-b>`      | Normal | List git status with preview    |
+| `<leader>gS` | Normal | List git stashes with preview   |
+| `<leader>gP` | Normal | Show current buffer git diff    |
+| `<leader>gp` | Normal | Preview hunk                    |
+| `<leader>gs` | Normal | Stage/Unstage hunk              |
+| `<leader>gb` | Normal | Toggle line blame               |
+| `<leader>gB` | Normal | Blame                           |
 
 ## LSP (Language Server Protocol)
 
@@ -52,7 +55,7 @@ This document outlines the custom keybindings configured in this NeoVim setup. T
 | :----------- | :----- | :---------------------------------------- |
 | `K`          | Normal | Show documentation for symbol under cursor|
 | `<leader>gd` | Normal | Go to definition                          |
-| `<leader>gr` | Normal | List references                           |
+| `<leader>gr` | Normal | Show List of references                   |
 | `<leader>ca` | Normal | Show code actions                         |
 | `<leader>ff` | Normal | Format code                               |
 
