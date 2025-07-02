@@ -12,8 +12,6 @@ This document outlines the custom keybindings configured in this NeoVim setup. T
 | `<C-l>`         | Normal | Navigate to the pane on the right (Vim or Tmux)   |
 | `<C-\>`         | Normal | Navigate to the previously active Tmux pane       |
 | `<leader>/`     | Normal | Clear search highlight                            |
-| `<C-n>`         | Normal | Show/select file explorer (Neo-tree)              |
-| `<leader>bf`    | Normal | Show open buffers in a floating window            |
 | `<C-e>`         | Normal | Show diagnostics (errors, warnings)               |
 
 ## Editing
@@ -22,6 +20,14 @@ This document outlines the custom keybindings configured in this NeoVim setup. T
 | :--------- | :----- | :----------------------- |
 | `J`        | Visual | Move selected lines down |
 | `K`        | Visual | Move selected lines up   |
+
+## Neo-tree (File Explorer)
+
+| Keybinding   | Mode   | Description                                        |
+| :----------- | :----- | :------------------------------------------------- |
+| `<C-n>`      | Normal | Show/select file explorer                          |
+| `<leader>bf` | Normal | Show open buffers in a floating window             |
+| `of`         | Normal | (In Neo-tree window) Open file/directory in Finder |
 
 ## Harpoon (File Bookmarking)
 
@@ -62,8 +68,10 @@ This document outlines the custom keybindings configured in this NeoVim setup. T
 | :----------- | :----- | :---------------------------------------- |
 | `H`          | Normal | Show documentation for symbol under cursor|
 | `<leader>gd` | Normal | Go to definition                          |
+| `<leader>gi` | Normal | Go to implementation                      |
 | `<leader>gr` | Normal | Show List of references                   |
 | `<leader>ca` | Normal | Show code actions                         |
+| `<leader>rn` | Normal | Rename symbol                             |
 | `<leader>ff` | Normal | Format code                               |
 
 ## Completion (Insert Mode)
