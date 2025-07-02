@@ -39,7 +39,10 @@ echo "brew installing stuff"
 # hub: a github-specific version of git
 # tree: really handy for listing out directories in text
 # bat: A cat(1) clone with syntax highlighting and Git integration.
-brew install git hub tree ffmpeg bat zsh git-delta nvm neovim ripgrep tmux devtunnel fzf
+# ripgrep: used for fuzzy finding (telescope)
+# fzf: used for fuzzy finding (telescope) and reverse search
+# fd: used for faster finding (neo-tree)
+brew install git hub tree ffmpeg bat zsh git-delta nvm neovim ripgrep tmux devtunnel fzf fd
 
 echo "installing node (via n-install)"
 curl -L https://git.io/n-install | bash
