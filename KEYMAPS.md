@@ -66,7 +66,7 @@ This document outlines the custom keybindings configured in this NeoVim setup. T
 
 | Keybinding   | Mode   | Description                               |
 | :----------- | :----- | :---------------------------------------- |
-| `H`          | Normal | Show documentation for symbol under cursor|
+| `K`          | Normal | Show documentation for symbol under cursor|
 | `<leader>gd` | Normal | Go to definition                          |
 | `<leader>gi` | Normal | Go to implementation                      |
 | `<leader>gr` | Normal | Show List of references                   |
@@ -80,6 +80,7 @@ This document outlines the custom keybindings configured in this NeoVim setup. T
 | :---------- | :----- | :-------------------------- |
 | `<C-Space>` | Insert | Trigger completion menu     |
 | `<CR>`      | Insert | Confirm selected completion |
+| `<Tab>`     | Insert | Confirm selected completion |
 | `<C-e>`     | Insert | Abort completion            |
 | `<C-b>`     | Insert | Scroll documentation up     |
 | `<C-f>`     | Insert | Scroll documentation down   |
