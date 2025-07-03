@@ -20,6 +20,7 @@ This document outlines the custom keybindings configured in this NeoVim setup. T
 | :--------- | :----- | :----------------------- |
 | `J`        | Visual | Move selected lines down |
 | `K`        | Visual | Move selected lines up   |
+| `<leader>y`| Visual | Copy to OS clipboard     |
 
 ## Neo-tree (File Explorer)
 
@@ -73,6 +74,8 @@ This document outlines the custom keybindings configured in this NeoVim setup. T
 | `<leader>ca` | Normal | Show code actions                         |
 | `<leader>rn` | Normal | Rename symbol                             |
 | `<leader>ff` | Normal | Format code                               |
+| `]d`         | Normal | Go to next diagnostic                     |
+| `[d`         | Normal | Go to previous diagnostic                 |
 
 ## Completion (Insert Mode)
 
@@ -94,3 +97,9 @@ This document outlines the custom keybindings configured in this NeoVim setup. T
 | `<leader>ts` | Normal | Run the entire test suite         |
 | `<leader>l`  | Normal | Run the last test                 |
 | `<leader>g`  | Normal | Go to the test file               |
+
+## UndoTree
+
+| Keybinding | Mode   | Description       |
+| :--------- | :----- | :---------------- |
+| `<leader>u`| Normal | Toggle UndoTree   |
