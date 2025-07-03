@@ -23,4 +23,9 @@ vim.keymap.set('v', 'J', ":m'>+1<CR>gv=gv")
 vim.keymap.set('v', 'K', ":m'<-2<CR>gv=gv")
 
 -- Copy to OS clipboard
-vim.keymap.set('v', '<leader>y', '"+y')
+vim.keymap.set({ "n", "v" }, '<leader>y', [["+y]])
+vim.keymap.set("n", '<leader>Y', [["+Y]])
+
+-- Navigate quick fixes and center cursor vertically
+vim.keymap.set("n", "]q", "<cmd>cnext<CR>zz")
+vim.keymap.set("n", "[q", "<cmd>cprev<CR>zz")
