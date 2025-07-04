@@ -25,6 +25,12 @@ POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()#(status command_execution_time time)
 #POWERLEVEL9K_SHORTEN_STRATEGY="truncate_from_right"
 POWERLEVEL9K_SHORTEN_DELIMITER=""
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
+
+# nvm 
+export NVM_LAZY_LOAD=true
+export NVM_AUTO_USE=true
+export NVM_DIR="$HOME/.nvm"
+
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
@@ -77,7 +83,7 @@ POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions)
+plugins=(zsh-nvm zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -111,7 +117,7 @@ source $ZSH/oh-my-zsh.sh
 alias zshconfig="nvim ~/.zshrc"
 #alias pbcopy="cat >/dev/clipboard"
 #alias pbpaste="cat /dev/clipboard"
-alias work="cd ~/Workspace/Git/Github"
+alias work="cd ~/Workspace/Git/Gitlab"
 alias ll="ls -a1"
 alias de="cd ~/Desktop"
 alias sz="source ~/.zshrc"
@@ -121,8 +127,6 @@ alias rmds="find . -type f -name '*.DS_Store' -ls -delete"
 
 # code related
 alias c="tmuxifier load-session work"
-alias kcd="npx -p yo -p generator-kcd-oss -c 'yo kcd-oss'"
-alias yarn-upgrade="yarn upgrade-interactive --latest"
 
 # git aliases
 alias gs="git status"
@@ -133,21 +137,13 @@ alias gpush="git push"
 alias gf="git fetch"
 alias rmn="rm -rf node_modules"
 
-# use hub for git
-alias git=hub
-alias gcreate="git create"
-alias gclone="git clone"
-
 # custom functions
 mg () { mkdir "$@" && cd "$@" || exit; }
 
 source /Users/luis/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-source /Users/luis/perl5/perlbrew/etc/bashrc
+#source /Users/luis/perl5/perlbrew/etc/bashrc
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # fzf
 source <(fzf --zsh)
@@ -158,31 +154,6 @@ export FZF_DEFAULT_OPTS='--no-height --no-reverse'
 export FZF_CTRL_T_OPTS="--preview '(highlight -O ansi -l {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null | head -200'"
 
 export FZF_CTRL_R_OPTS="--preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview'"
-
-# place this after nvm initialization!
-autoload -U add-zsh-hook
-
-load-nvmrc() {
-  local nvmrc_path
-  nvmrc_path="$(nvm_find_nvmrc)"
-
-  if [ -n "$nvmrc_path" ]; then
-    local nvmrc_node_version
-    nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
-
-    if [ "$nvmrc_node_version" = "N/A" ]; then
-      nvm install
-    elif [ "$nvmrc_node_version" != "$(nvm version)" ]; then
-      nvm use
-    fi
-  elif [ -n "$(PWD=$OLDPWD nvm_find_nvmrc)" ] && [ "$(nvm version)" != "$(nvm version default)" ]; then
-    echo "Reverting to nvm default version"
-    nvm use default
-  fi
-}
-
-add-zsh-hook chpwd load-nvmrc
-load-nvmrc
 
 # tmuxifier
 export PATH="$HOME/.tmuxifier/bin:$PATH"
