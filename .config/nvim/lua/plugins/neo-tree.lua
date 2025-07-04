@@ -39,6 +39,8 @@ return {
 						"build",
 						"--exclude",
 						"node_modules",
+            "--exclude",
+            "coverage",
 					},
 				},
 				commands = {

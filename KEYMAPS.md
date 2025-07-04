@@ -16,11 +16,12 @@ This document outlines the custom keybindings configured in this NeoVim setup. T
 
 ## Editing
 
-| Keybinding | Mode   | Description              |
-| :--------- | :----- | :----------------------- |
-| `J`        | Visual | Move selected lines down |
-| `K`        | Visual | Move selected lines up   |
-| `<leader>y`| Visual | Copy to OS clipboard     |
+| Keybinding | Mode           | Description                       |
+| :--------- | :------------- | :-------------------------------- |
+| `J`        | Visual         | Move selected lines down          |
+| `K`        | Visual         | Move selected lines up            |
+| `<leader>y`| Normal, Visual | Copy to OS clipboard              |
+| `<leader>Y`| Normal         | Copy current line to OS clipboard |
 
 ## Neo-tree (File Explorer)
 
@@ -76,6 +77,13 @@ This document outlines the custom keybindings configured in this NeoVim setup. T
 | `<leader>ff` | Normal | Format code                               |
 | `]d`         | Normal | Go to next diagnostic                     |
 | `[d`         | Normal | Go to previous diagnostic                 |
+
+## Quickfix
+
+| Keybinding | Mode   | Description                        |
+| :--------- | :----- | :--------------------------------- |
+| `]q`       | Normal | Navigate to next quickfix item     |
+| `[q`       | Normal | Navigate to previous quickfix item |
 
 ## Completion (Insert Mode)
 
