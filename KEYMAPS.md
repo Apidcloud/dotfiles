@@ -20,6 +20,7 @@ This document outlines the custom keybindings configured in this NeoVim setup. T
 | :--------- | :------------- | :-------------------------------- |
 | `J`        | Visual         | Move selected lines down          |
 | `K`        | Visual         | Move selected lines up            |
+| `Y`        | Normal         | Copy current line                 |
 | `<leader>y`| Normal, Visual | Copy to OS clipboard              |
 | `<leader>Y`| Normal         | Copy current line to OS clipboard |
 
@@ -82,8 +83,8 @@ This document outlines the custom keybindings configured in this NeoVim setup. T
 
 | Keybinding | Mode   | Description                        |
 | :--------- | :----- | :--------------------------------- |
-| `]q`       | Normal | Navigate to next quickfix item     |
-| `[q`       | Normal | Navigate to previous quickfix item |
+| `]q`       | Normal | Go to next quickfix item           |
+| `[q`       | Normal | Go to previous quickfix item       |
 
 ## Completion (Insert Mode)
 

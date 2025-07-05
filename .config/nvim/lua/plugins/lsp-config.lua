@@ -78,8 +78,16 @@ return {
       vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, {})
       vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
       vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, {})
-      vim.keymap.set("n", "]d", vim.diagnostic.goto_next, {})
-      vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, {})
+
+      -- Navigate diagnostics and center cursor vertically
+      vim.keymap.set("n", "[d", function()
+        vim.diagnostic.goto_prev()
+        vim.cmd("normal! zz")
+      end, {})
+      vim.keymap.set("n", "]d", function()
+        vim.diagnostic.goto_next()
+        vim.cmd("normal! zz")
+      end, {})
     end,
   },
 }
