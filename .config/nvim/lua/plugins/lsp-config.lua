@@ -8,7 +8,7 @@ return {
     opts = {
       -- auto_install not really working?
       --auto_install = true,
-      ensure_installed = { "lua_ls", "rust_analyzer", "ts_ls", "clangd" },
+      ensure_installed = { "lua_ls", "rust_analyzer", "ts_ls", "clangd", "biome" },
     },
     dependencies = {
       { "mason-org/mason.nvim", opts = {} },
@@ -20,6 +20,9 @@ return {
     lazy = false,
     config = function()
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
+      capabilities.general = {
+        positionEncodings = { "utf-16" },
+      }
 
       local lspconfig = require("lspconfig")
       lspconfig.ts_ls.setup({
@@ -36,6 +39,9 @@ return {
         },
       })
       lspconfig.clangd.setup({
+        capabilities = capabilities,
+      })
+      lspconfig.biome.setup({
         capabilities = capabilities,
       })
 

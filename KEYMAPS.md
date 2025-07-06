@@ -51,6 +51,7 @@ This document outlines the custom keybindings configured in this NeoVim setup. T
 | :-------------- | :----- | :---------------------------------------- |
 | `<C-p>`         | Normal | Find files                                |
 | `<leader>fg`    | Normal | Live grep for a string in the project     |
+| `<leader>fs`     | Normal | List document symbols                     |
 | `<leader><leader>` | Normal | Show previously opened files              |
 
 ## Git Integration
