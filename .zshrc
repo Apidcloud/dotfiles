@@ -135,6 +135,7 @@ alias ga="git add ."
 alias gp="git pull"
 alias gpush="git push"
 alias gf="git fetch"
+alias gcb="git checkout -b"
 alias rmn="rm -rf node_modules"
 
 # custom functions
