@@ -3,9 +3,11 @@
   email = luisapidcloud@hotmail.com
 [alias]
   cdiff = "!git diff $1 $1^"
+  stat = !git fetch && git status
 [core]
   pager = delta --theme="night-owlish"
 	excludesfile = /Users/luis/.gitignore_global
+  autocrlf = input
 [interactive]
     diffFilter = delta --color-only
 [color]
@@ -22,3 +24,13 @@
 	old = red bold
 	new = green bold
 	whitespace = red reverse
+[pull]
+  rebase = true
+[fetch]
+  prune = true
+[init]
+  defaultBranch = main
+[rerere]
+  enabled = true
+[push]
+  autoSetupRemote = true
