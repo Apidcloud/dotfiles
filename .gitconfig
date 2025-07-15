@@ -5,7 +5,7 @@
   cdiff = "!git diff $1 $1^"
   stat = !git fetch && git status
 [core]
-  pager = delta --theme="night-owlish"
+  pager = delta --syntax-theme="Catppucin-Mocha"
 	excludesfile = /Users/luis/.gitignore_global
   autocrlf = input
 [interactive]

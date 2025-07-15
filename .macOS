@@ -33,22 +33,29 @@ mkdir -p "${HOME}/workspace/Git/Bitbucket"
 
 echo "installing homebrew"
 # install homebrew https://brew.sh
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 echo "brew installing stuff"
-# tree: really handy for listing out directories in text
+# can also add git if not installing xcode tools
 # bat: A cat(1) clone with syntax highlighting and Git integration.
+# git-delta: delta pager (combines with bat)
 # ripgrep: used for fuzzy finding (telescope)
 # fzf: used for fuzzy finding (telescope) and reverse search
 # fd: used for faster finding (neo-tree)
-brew install git tree ffmpeg bat zsh git-delta neovim ripgrep tmux devtunnel fzf fd
+brew install wget ffmpeg zsh bat git-delta devtunnel neovim tmux ripgrep fzf fd
 
-# Node should be used through nvm, which should be installed the first time we source zsh
-# echo "installing node (via n-install)"
-# curl -L https://git.io/n-install | bash
-#
-# echo "node --version: $(node --version)"
-# echo "npm --version: $(npm --version)"
+# Install catppuccin for bat
+echo "installing catppuccin for bat"
+wget -P "$(bat --config-dir)/themes" https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Mocha.tmTheme
+bat cache --build
+# bat --list-themes
+# if having issues to then load it when using git diff, then change the name of the .tmTheme file downloaded above,
+# and also the <string> tag inside (to not have any spaces)
+
+# Node should be used through nvm, which should then be installed the first time we source zsh
+# Check https://github.com/nvm-sh/nvm#installing-and-updating for more up to date version
+echo "installing nvm"
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
 
 echo "installing apps with brew cask"
 brew cask install brave-browser visual-studio-code \
