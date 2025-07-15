@@ -1,14 +1,21 @@
 #!/usr/bin/env bash
 
-# Try to attach to existing session for this directory
 current_dir="$(pwd)"
-session_name="$(basename "$current_dir" | tr '.' '_')"  # Replace dots with underscores
+project_name="$(basename "$current_dir" | tr '.' '_')"
 
-# Check if session exists and attach, or create new one
-if ! tmux attach-session -t "$session_name" 2>/dev/null; then
-    # Create new session with editor setup
-    tmux new-session -d -s "$session_name" -c "$current_dir" -n 'editor' \; \
+# Check if we are running inside an existing tmux session
+if [ -n "$TMUX" ]; then
+  # INSIDE tmux: Configure the CURRENT window for this project
+  tmux rename-window "$project_name" \; \
+       send-keys "nvim ." C-m \; \
+       split-window -h -p 20 -c "$current_dir"
+
+else
+  # OUTSIDE tmux: Create a new session or attach to an existing one
+  if ! tmux has-session -t "$project_name" 2>/dev/null; then
+    tmux new-session -d -s "$project_name" -c "$current_dir" -n "$project_name" \; \
          send-keys "nvim ." C-m \; \
-         split-window -p 20 -h -c "$current_dir" \; \
-         attach-session
+         split-window -h -p 20 -c "$current_dir"
+  fi
+  tmux attach-session -t "$project_name"
 fi
