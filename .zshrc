@@ -132,15 +132,39 @@ alias c="tmuxifier load-session work"
 # git aliases
 alias gs="git status"
 alias gd="git diff"
-alias ga="git add ."
-alias gp="git pull"
-alias gpush="git push"
-alias gf="git fetch"
 alias gcb="git checkout -b"
 alias rmn="rm -rf node_modules"
 
 # custom functions
 mg () { mkdir "$@" && cd "$@" || exit; }
+
+gcu() {
+  if [ -z "$1" ]; then
+    echo "Error: Please specify the branch you want to switch to before deleting the current local branch.\n"
+    echo "Usage: gcu <destination-branch>"
+    echo "Protected branches: main | master | staging | development"
+    return 1
+  fi
+
+  local destination_branch=$1
+  local branch_to_delete
+  branch_to_delete=$(git branch --show-current)
+
+  if [ "$destination_branch" = "$branch_to_delete" ]; then
+    echo "Error: Destination and current branch are the same ('$destination_branch'). Aborting."
+    return 1
+  fi
+
+  case "$branch_to_delete" in
+    main|master|staging|development)
+      echo "Error: Cannot clean up protected branch '$branch_to_delete'."
+      return 1
+      ;;
+  esac
+
+  echo "Switching to '$destination_branch' to delete '$branch_to_delete'..."
+  git checkout "$destination_branch" && git fetch -p && git branch -D "$branch_to_delete"
+}
 
 source /Users/luis/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 

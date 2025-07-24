@@ -2,7 +2,7 @@
   name = apidcloud
   email = luisapidcloud@hotmail.com
 [alias]
-  cdiff = "!git diff $1 $1^"
+  cdiff = "!git diff $1^ $1"
   stat = !git fetch && git status
 [core]
   pager = delta --syntax-theme="Catppucin-Mocha"
