@@ -36,3 +36,5 @@
   autoSetupRemote = true
 [branch]
   sort = -committerdate
+[rebase]
+  autosquash = true
