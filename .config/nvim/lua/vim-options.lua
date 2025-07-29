@@ -41,6 +41,12 @@ vim.keymap.set("n", "Y", "yy")
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
 
+-- Delete without yanking into register
+vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
+
+-- Paste over selection without losing register
+vim.keymap.set("x", "<leader>p", [["_dP]])
+
 -- Navigate quick fixes and center cursor vertically
 vim.keymap.set("n", "[q", "<cmd>cprev<CR>zz")
 vim.keymap.set("n", "]q", "<cmd>cnext<CR>zz")
