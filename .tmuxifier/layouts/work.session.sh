@@ -8,7 +8,7 @@ if [ -n "$TMUX" ]; then
   # INSIDE tmux: Configure the CURRENT window for this project
   tmux rename-window "$project_name" \; \
        send-keys "nvim ." C-m \; \
-       split-window -h -p 20 -c "$current_dir"
+       split-window -h -p 20 -c "$current_dir" -d
 
 else
   # OUTSIDE tmux: Create a new session or attach to an existing one
