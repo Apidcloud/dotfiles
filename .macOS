@@ -42,7 +42,10 @@ echo "brew installing stuff"
 # ripgrep: used for fuzzy finding (telescope)
 # fzf: used for fuzzy finding (telescope) and reverse search
 # fd: used for faster finding (neo-tree)
-brew install wget ffmpeg zsh bat git-delta devtunnel neovim tmux ripgrep fzf fd
+# macos-fuse-t/homebrew-cask/fuse-t: driver to get sshfs to work on macos (NFS)
+# macos-fuse-t/homebrew-cask/fuse-t-sshfs: mount remote directories
+arch -arm64 brew install wget ffmpeg zsh bat git-delta devtunnel neovim tmux ripgrep fzf fd macos-fuse-t/homebrew-cask/fuse-t macos-fuse-t/homebrew-cask/fuse-t-sshfs
+
 
 # Install catppuccin for bat
 echo "installing catppuccin for bat"
@@ -58,7 +61,7 @@ echo "installing nvm"
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
 
 echo "installing apps with brew cask"
-brew cask install brave-browser visual-studio-code \
+arch -arm64 brew cask install brave-browser visual-studio-code \
 spotify rectangle odrive \
 openvpn-connect pock steam iterm2
 

@@ -128,6 +128,7 @@ alias rmds="find . -type f -name '*.DS_Store' -ls -delete"
 
 # code related
 alias c="tmuxifier load-session work"
+alias r="tmuxifier load-session remote"
 
 # git aliases
 alias gs="git status"
