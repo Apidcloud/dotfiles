@@ -15,7 +15,7 @@ else
   if ! tmux has-session -t "$session_name" 2>/dev/null; then
     tmux new-session -d -s "$session_name" -n "gateway" \; \
          send-keys "$nvim_cmd" C-m \; \
-         split-window -h -p 20
+         split-window -h -p 20 -d
   fi
   tmux attach-session -t "$session_name"
 fi
