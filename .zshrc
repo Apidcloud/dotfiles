@@ -165,7 +165,7 @@ gcu() {
   esac
 
   echo "Switching to '$destination_branch' to delete '$branch_to_delete'..."
-  git checkout "$destination_branch" && git fetch -p && git branch -D "$branch_to_delete"
+  git checkout "$destination_branch" && git fetch -p && git pull && git branch -D "$branch_to_delete"
 }
 
 source /Users/luis/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
