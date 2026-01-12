@@ -39,8 +39,8 @@ return {
 						"build",
 						"--exclude",
 						"node_modules",
-            "--exclude",
-            "coverage",
+						"--exclude",
+						"coverage",
 					},
 				},
 				commands = {
@@ -56,6 +56,16 @@ return {
 					},
 				},
 			},
+		})
+
+		local refresh_group = vim.api.nvim_create_augroup("NeoTreeGitRefresh", { clear = true })
+		vim.api.nvim_create_autocmd("FocusGained", {
+			group = refresh_group,
+			callback = function()
+				if package.loaded["neo-tree.sources.git_status"] then
+					require("neo-tree.sources.git_status").refresh()
+				end
+			end,
 		})
 		vim.keymap.set("n", "<C-n>", ":Neotree filesystem reveal left<CR>", {})
 		vim.keymap.set("n", "<leader>bf", ":Neotree buffers reveal float<CR>", {})
