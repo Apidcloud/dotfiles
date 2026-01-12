@@ -133,6 +133,7 @@ alias r="tmuxifier load-session remote"
 # git aliases
 alias gs="git status"
 alias gd="git diff"
+alias gds="git diff --staged"
 alias gcb="git checkout -b"
 alias rmn="rm -rf node_modules"
 
