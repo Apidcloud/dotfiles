@@ -95,8 +95,8 @@ This document outlines the custom keybindings configured in this NeoVim setup. T
 | `<CR>`      | Insert | Confirm selected completion |
 | `<Tab>`     | Insert | Confirm selected completion |
 | `<C-e>`     | Insert | Abort completion            |
-| `<C-b>`     | Insert | Scroll documentation up     |
-| `<C-f>`     | Insert | Scroll documentation down   |
+| `<C-u>`     | Insert | Scroll documentation up     |
+| `<C-d>`     | Insert | Scroll documentation down   |
 
 ## Testing
 
