@@ -50,3 +50,6 @@ vim.keymap.set("x", "<leader>p", [["_dP]])
 -- Navigate quick fixes and center cursor vertically
 vim.keymap.set("n", "[q", "<cmd>cprev<CR>zz")
 vim.keymap.set("n", "]q", "<cmd>cnext<CR>zz")
+
+-- Open sessionizer
+vim.keymap.set("n", "<c-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")

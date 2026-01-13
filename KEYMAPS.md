@@ -113,3 +113,8 @@ This document outlines the custom keybindings configured in this NeoVim setup. T
 | Keybinding | Mode   | Description       |
 | :--------- | :----- | :---------------- |
 | `<leader>u`| Normal | Toggle UndoTree   |
+
+## Tmux Sessionizer
+| Keybinding | Mode   | Description       |
+| :--------- | :----- | :---------------- |
+| `<C-f>`    | Normal | Open Sessionizer  |
