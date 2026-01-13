@@ -71,6 +71,8 @@ This document outlines the custom keybindings configured in this NeoVim setup. T
 | Keybinding   | Mode   | Description                               |
 | :----------- | :----- | :---------------------------------------- |
 | `K`          | Normal | Show documentation for symbol under cursor|
+| `KK`         | Normal | Pressing K again will enter the docs menu |
+| `gx`         | Normal | Open external link (e.g., mdn docs)       |
 | `<leader>gd` | Normal | Go to definition                          |
 | `<leader>gi` | Normal | Go to implementation                      |
 | `<leader>gr` | Normal | Show List of references                   |
