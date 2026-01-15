@@ -182,9 +182,6 @@ export FZF_CTRL_T_OPTS="--preview '(highlight -O ansi -l {} 2> /dev/null || cat 
 
 export FZF_CTRL_R_OPTS="--preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview'"
 
-# tmux sessionizer
-bindkey -s ^f "tmux-sessionizer\n"
-
 # tmuxifier
 export PATH="$HOME/.tmuxifier/bin:$PATH"
 
