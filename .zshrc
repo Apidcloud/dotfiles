@@ -192,6 +192,10 @@ eval "$(tmuxifier init -)"
 
 # tmux sessionizer
 bindkey -s ^f "tmux-sessionizer\n"
+bindkey -s '\e0' "tmux-sessionizer -s 0\n"
+bindkey -s '\e1' "tmux-sessionizer -s 1\n"
+bindkey -s '\e2' "tmux-sessionizer -s 2\n"
+bindkey -s '\e3' "tmux-sessionizer -s 3\n"
 
 # contains e.g., CodeRabbit and custom scripts like tmux-sessionizer, and tmux-cht.sh
 export PATH="$HOME/.local/bin:$PATH"

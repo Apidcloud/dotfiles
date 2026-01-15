@@ -1,9 +1,32 @@
 #!/usr/bin/env bash
 
-if [[ $# -eq 1 ]]; then
-    selected=$1
-else
-    selected=$(find ~/workspace/Git ~/workspace/Git/Gitlab ~/workspace/Git/Github ~/workspace/Git/Bitbucket ~/ ~/workspace -mindepth 1 -maxdepth 1 -type d | fzf)
+declare -A shortcuts
+shortcuts[0]="$HOME/dotfiles"
+shortcuts[1]="$HOME/workspace/Git/Gitlab/artivive-backend"
+shortcuts[2]="$HOME/workspace/Git/Gitlab/labs/artivive-labs-api"
+shortcuts[3]="$HOME/workspace/Git/Gitlab/webar"
+
+while getopts "s:" opt; do
+    case $opt in
+        s)
+            selected="${shortcuts[$OPTARG]}"
+            if [[ -z $selected ]]; then
+                echo "Invalid shortcut: $OPTARG"
+                exit 1
+            fi
+            ;;
+        *)
+            exit 1
+            ;;
+    esac
+done
+
+if [[ -z $selected ]]; then
+    if [[ $# -eq 1 ]]; then
+        selected=$1
+    else
+        selected=$(find ~/workspace/Git ~/workspace/Git/Gitlab ~/workspace/Git/Gitlab/labs ~/workspace/Git/Github ~/workspace/Git/Bitbucket ~/ ~/workspace -mindepth 1 -maxdepth 1 -type d | fzf)
+    fi
 fi
 
 if [[ -z $selected ]]; then

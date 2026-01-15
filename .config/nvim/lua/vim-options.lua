@@ -53,3 +53,7 @@ vim.keymap.set("n", "]q", "<cmd>cnext<CR>zz")
 
 -- Open sessionizer
 vim.keymap.set("n", "<c-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
+vim.keymap.set("n", "<M-0>", "<cmd>silent !tmux neww tmux-sessionizer -s 0<CR>")
+vim.keymap.set("n", "<M-1>", "<cmd>silent !tmux neww tmux-sessionizer -s 1<CR>")
+vim.keymap.set("n", "<M-2>", "<cmd>silent !tmux neww tmux-sessionizer -s 2<CR>")
+vim.keymap.set("n", "<M-3>", "<cmd>silent !tmux neww tmux-sessionizer -s 3<CR>")
