@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+remote_url=$(git remote get-url origin 2>/dev/null)
+
+if [ -z "$remote_url" ]; then
+    echo "No remote origin found."
+    exit 1
+fi
+
+# Convert SSH (git@github.com:...) to HTTPS (https://github.com/...)
+if [[ "$remote_url" == git@* ]]; then
+    remote_url=${remote_url/:/\/}
+    remote_url=${remote_url/git@/https:\/\/}
+fi
+
+# Remove the .git suffix
+remote_url=${remote_url%.git}
+
+current_branch=$(git rev-parse --abbrev-ref HEAD)
+open "$remote_url/tree/$current_branch"

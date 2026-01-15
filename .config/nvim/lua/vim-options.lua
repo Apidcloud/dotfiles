@@ -57,3 +57,8 @@ vim.keymap.set("n", "<M-0>", "<cmd>silent !tmux neww tmux-sessionizer -s 0<CR>")
 vim.keymap.set("n", "<M-1>", "<cmd>silent !tmux neww tmux-sessionizer -s 1<CR>")
 vim.keymap.set("n", "<M-2>", "<cmd>silent !tmux neww tmux-sessionizer -s 2<CR>")
 vim.keymap.set("n", "<M-3>", "<cmd>silent !tmux neww tmux-sessionizer -s 3<CR>")
+
+-- git-open
+vim.keymap.set("n", "<c-g>", function()
+  vim.fn.jobstart({ "git-open" }, { detach = true })
+end, { silent = true, desc = "Open Repo in Browser" })

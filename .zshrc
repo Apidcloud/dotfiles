@@ -194,5 +194,12 @@ bindkey -s '\e1' "tmux-sessionizer -s 1\n"
 bindkey -s '\e2' "tmux-sessionizer -s 2\n"
 bindkey -s '\e3' "tmux-sessionizer -s 3\n"
 
+# git-open
+git_open_widget() {
+    git-open &>/dev/null &!
+}
+zle -N git_open_widget
+bindkey '\eg' git_open_widget
+
 # contains e.g., CodeRabbit and custom scripts like tmux-sessionizer, and tmux-cht.sh
 export PATH="$HOME/.local/bin:$PATH"
