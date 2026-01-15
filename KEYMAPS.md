@@ -120,3 +120,8 @@ This document outlines the custom keybindings configured in this NeoVim setup. T
 | Keybinding | Mode   | Description       |
 | :--------- | :----- | :---------------- |
 | `<C-f>`    | Normal | Open Sessionizer  |
+
+## Git-open
+| Keybinding | Mode   | Description                      |
+| :--------- | :----- | :--------------------------------|
+| `<C-g>`    | Normal | Open Repo (branch) in the browser|
