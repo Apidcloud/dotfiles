@@ -203,3 +203,6 @@ bindkey '\eg' git_open_widget
 
 # contains e.g., CodeRabbit and custom scripts like tmux-sessionizer, and tmux-cht.sh
 export PATH="$HOME/.local/bin:$PATH"
+
+# Amp CLI
+export PATH="/Users/luis/.amp/bin:$PATH"
