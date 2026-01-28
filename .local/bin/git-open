@@ -17,4 +17,10 @@ fi
 remote_url=${remote_url%.git}
 
 current_branch=$(git rev-parse --abbrev-ref HEAD)
-open "$remote_url/tree/$current_branch"
+
+# Check if the branch exists on the remote
+if git rev-parse --verify "origin/$current_branch" &>/dev/null; then
+    open "$remote_url/tree/$current_branch"
+else
+    open "$remote_url"
+fi
