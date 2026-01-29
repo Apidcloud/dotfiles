@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-declare -A shortcuts
+declare -a shortcuts
 shortcuts[0]="$HOME/dotfiles"
 shortcuts[1]="$HOME/workspace/Git/Gitlab/artivive-backend"
 shortcuts[2]="$HOME/workspace/Git/Gitlab/labs/artivive-labs-api"
