@@ -96,9 +96,11 @@ echo "the ssh config file will be cloned and symlinked shortly"
 echo "cloning dotfiles..."
 git clone git@github.com:apidcloud/dotfiles.git "${HOME}/dotfiles"
 
-echo "symlinking tmuxifier layout"
-# might need chmod +x ~/.tmuxifier/layouts/backend.session.sh
+echo "symlinking tmuxifier layouts"
+chmod +x "${HOME}/dotfiles/.tmuxifier/layouts/work.session.sh"
+chmod +x "${HOME}/dotfiles/.tmuxifier/layouts/remote.session.sh"
 ln -s "${HOME}/dotfiles/.tmuxifier/layouts/work.session.sh" "${HOME}/.tmuxifier/layouts/work.session.sh"
+ln -s "${HOME}/dotfiles/.tmuxifier/layouts/remote.session.sh" "${HOME}/.tmuxifier/layouts/remote.session.sh"
 
 echo "symlinking neovim config"
 ln -s "${HOME}/dotfiles/.config/nvim" "${HOME}/.config"
@@ -108,11 +110,25 @@ ln -s "${HOME}/dotfiles/.ssh/config" "${HOME}/.ssh/config"
 echo "run 'pbcopy < ~/.ssh/id_ed25519.pub' and paste that into GitHub"
 echo "run 'pbcopy < ~/.ssh/id_ed25519_gitlab.pub' and paste that into Gitlab"
 
-echo "symlinking other dotfiles..."
+echo "symlinking other dotfiles"
 ln -s "${HOME}/dotfiles/.zshrc" "${HOME}/.zshrc"
 ln -s "${HOME}/dotfiles/.gitignore_global" "${HOME}/.gitignore_global"
 ln -s "${HOME}/dotfiles/.gitconfig" "${HOME}/.gitconfig"
 ln -s "${HOME}/dotfiles/.tmux.conf" "${HOME}/.tmux.conf"
+
+echo "symlinking .local/bin scripts and running chmod +x on them"
+mkdir -p "${HOME}/.local/bin"
+for script in "${HOME}/dotfiles/.local/bin"/*; do
+  [ -e "${script}" ] || continue
+  chmod +x "${script}"
+  ln -s "${script}" "${HOME}/.local/bin/$(basename "${script}")"
+done
+
+echo "symlinking ghostty config"
+ln -s "${HOME}/dotfiles/.config/ghostty" "${HOME}/.config"
+
+echo "symlinking atac config"
+ln -s "${HOME}/dotfiles/.config/atac" "${HOME}/.config"
 
 # get bat and delta all configured
 mkdir -p "${HOME}/.config/bat/themes"
