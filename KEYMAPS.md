@@ -10,6 +10,10 @@ This document outlines the custom keybindings configured in this NeoVim setup. T
 | `<C-j>`         | Normal | Navigate to the pane below (Vim or Tmux)          |
 | `<C-k>`         | Normal | Navigate to the pane above (Vim or Tmux)          |
 | `<C-l>`         | Normal | Navigate to the pane on the right (Vim or Tmux)   |
+| `<C-x> + H`     | Normal | Resize tmux pane left                             |
+| `<C-x> + J`     | Normal | Resize tmux pane down                             |
+| `<C-x> + K`     | Normal | Resize tmux pane up                               |
+| `<C-x> + L`     | Normal | Resize tmux pane right                            |
 | `<C-\>`         | Normal | Navigate to the previously active Tmux pane       |
 | `<leader>/`     | Normal | Clear search highlight                            |
 | `<C-e>`         | Normal | Show diagnostics (errors, warnings)               |
