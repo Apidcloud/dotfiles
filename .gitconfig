@@ -6,7 +6,7 @@
   stat = !git fetch && git status
 [core]
   pager = delta --syntax-theme="Catppucin-Mocha"
-	excludesfile = /Users/luis/.gitignore_global
+	excludesfile = ~/.gitignore_global
   autocrlf = input
 [interactive]
     diffFilter = delta --color-only
