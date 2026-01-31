@@ -1,0 +1,27 @@
+# Custom zsh functions for Tmux dynamic window titles
+
+# Helper to ensure window title is reset after interactive commands.
+_reset_tmux_title() {
+  if [ -n "$TMUX" ]; then
+    echo -ne "\033]2;$(hostname -s)\007"
+  fi
+}
+
+ssh() {
+  command ssh "$@"
+  _reset_tmux_title
+}
+
+gemini() {
+  # Force NVM initialization if needed by running a watched command.
+  # This ensures the 'gemini' binary is in the PATH.
+  node --version >/dev/null 2>&1
+
+  command gemini "$@"
+  _reset_tmux_title
+}
+
+amp() {
+  command amp "$@"
+  _reset_tmux_title
+}
