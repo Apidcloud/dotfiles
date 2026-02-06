@@ -13,10 +13,6 @@ ssh() {
 }
 
 gemini() {
-  # Force NVM initialization if needed by running a watched command.
-  # This ensures the 'gemini' binary is in the PATH.
-  node --version >/dev/null 2>&1
-
   command gemini "$@"
   _reset_tmux_title
 }

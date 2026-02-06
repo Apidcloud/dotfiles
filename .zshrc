@@ -30,7 +30,7 @@ POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
 export NVM_LAZY_LOAD=true
 export NVM_AUTO_USE=true
 export NVM_DIR="$HOME/.nvm"
-export NVM_LAZY_LOAD_EXTRA_COMMANDS=('nvim')
+export NVM_LAZY_LOAD_EXTRA_COMMANDS=('nvim' 'amp' 'gemini')
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
