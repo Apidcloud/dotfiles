@@ -1,1 +1,3 @@
 macos-option-as-alt = true
+custom-shader = shaders/cursor-warp.glsl
+custom-shader-animation = true
