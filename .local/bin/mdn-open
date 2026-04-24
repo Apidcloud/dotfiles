@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+if [[ $# -gt 0 ]]; then
+    query="$*"
+else
+    read -r -p "MDN: " query
+fi
+
+if [[ -z "$query" ]]; then
+    exit 0
+fi
+
+query=${query// /%20}
+url="https://mdn.io/$query"
+
+if ! /usr/bin/open "$url"; then
+    echo "Failed to open $url" >&2
+    exit 1
+fi
