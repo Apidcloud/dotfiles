@@ -1,0 +1,46 @@
+add_newline = false
+command_timeout = 1000
+
+format = "$directory${custom.git_branch_clean}${custom.git_branch_dirty}$git_status\n$character"
+
+right_format = ""
+
+[directory]
+truncation_length = 1
+truncate_to_repo = true
+truncation_symbol = ""
+style = "bold fg:#89b4fa"
+format = "[$path ]($style)"
+
+[character] 
+success_symbol = '[➜](bold green)'
+error_symbol = '[➜](bold red)'
+
+[git_branch]
+disabled = true
+
+[custom.git_branch_clean]
+command = "printf '%s %s' (git rev-parse --abbrev-ref HEAD) (git tag --points-at HEAD | head -n 1)"
+when = "git rev-parse --is-inside-work-tree >/dev/null 2>&1 && test -z \"$(git status --porcelain --ignore-submodules)\""
+format = "on [ $output]($style)"
+style = "bold green"
+ignore_timeout = true
+
+[custom.git_branch_dirty]
+command = "printf '%s %s' (git rev-parse --abbrev-ref HEAD) (git tag --points-at HEAD | head -n 1)"
+when = "git rev-parse --is-inside-work-tree >/dev/null 2>&1 && test -n \"$(git status --porcelain --ignore-submodules)\""
+format = "on [ $output]($style)"
+style = "bold yellow"
+ignore_timeout = true
+
+[git_status]
+format = " ([\\[$all_status$ahead_behind\\]]($style))"
+style = "bold red"
+stashed = "≡"
+staged = "+"
+modified = "!"
+untracked = "?"
+conflicted = "✘"
+ahead = "⇡"
+behind = "⇣"
+diverged = "⇕"

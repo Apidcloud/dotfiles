@@ -44,8 +44,7 @@ echo "brew installing stuff"
 # fd: used for faster finding (neo-tree)
 # macos-fuse-t/homebrew-cask/fuse-t: driver to get sshfs to work on macos (NFS)
 # macos-fuse-t/homebrew-cask/fuse-t-sshfs: mount remote directories
-arch -arm64 brew install wget ffmpeg zsh bat git-delta devtunnel neovim tmux ripgrep fzf fd macos-fuse-t/homebrew-cask/fuse-t macos-fuse-t/homebrew-cask/fuse-t-sshfs
-
+arch -arm64 brew install wget ffmpeg zsh fish bat git-delta devtunnel neovim tmux ripgrep fzf fd macos-fuse-t/homebrew-cask/fuse-t macos-fuse-t/homebrew-cask/fuse-t-sshfs
 
 # Install catppuccin for bat
 echo "installing catppuccin for bat"
@@ -54,6 +53,10 @@ bat cache --build
 # bat --list-themes
 # if having issues to then load it when using git diff, then change the name of the .tmTheme file downloaded above,
 # and also the <string> tag inside (to not have any spaces)
+
+# fnm (Fast Node Manager): Fast and simple Node.js version manager, built in Rust
+echo "installing fnm"
+arch -arm64 brew install fnm
 
 # Node should be used through nvm, which should then be installed the first time we source zsh
 # Check https://github.com/nvm-sh/nvm#installing-and-updating for more up to date version
@@ -105,6 +108,10 @@ ln -s "${HOME}/dotfiles/.tmuxifier/layouts/remote.session.sh" "${HOME}/.tmuxifie
 echo "symlinking neovim config"
 ln -s "${HOME}/dotfiles/.config/nvim" "${HOME}/.config"
 
+echo "symlinking fish config"
+ln -s "${HOME}/dotfiles/.config/fish/config.fish" "${HOME}/.config/fish/"
+ln -s "${HOME}/dotfiles/.config/fish/starship.toml" "${HOME}/.config/"
+
 echo "symlinking ~/.ssh/config file..."
 ln -s "${HOME}/dotfiles/.ssh/config" "${HOME}/.ssh/config"
 echo "run 'pbcopy < ~/.ssh/id_ed25519.pub' and paste that into GitHub"
@@ -129,6 +136,14 @@ ln -s "${HOME}/dotfiles/.config/ghostty" "${HOME}/.config"
 
 echo "symlinking atac config"
 ln -s "${HOME}/dotfiles/.config/atac" "${HOME}/.config"
+
+# Set Fish as the default shell
+echo "Setting Fish as the default shell..."
+if ! grep -q "$(which fish)" /etc/shells; then
+  echo "Adding fish to /etc/shells"
+  which fish | sudo tee -a /etc/shells
+fi
+chsh -s "$(which fish)"
 
 # get bat and delta all configured
 mkdir -p "${HOME}/.config/bat/themes"
